@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+import ProfileLoader from "./components/ProfileLoader";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -13,6 +14,7 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <Router>
+      <ProfileLoader />
       <Toaster position="top-center" toastOptions={{ duration: 2000 }} />
       <Nav />
       <Routes>

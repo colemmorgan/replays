@@ -14,7 +14,7 @@ const userSchema = new Schema({
     gameId: String,
     date: String,
     lengthInMs: String,
-    place: Number,
+    Place: Number,
     eliminations: Number
   }]
 });

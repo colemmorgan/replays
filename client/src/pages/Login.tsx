@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { userState } from "../atoms/userState";
 
 type LoginProps = {};
 
@@ -15,23 +17,30 @@ const Login: React.FC<LoginProps> = () => {
     password: "",
   });
 
+  const setUser = useSetRecoilState(userState);
+
   const navigate = useNavigate()
 
-  const loginUser = async (
-    e: React.FormEvent<HTMLFormElement>
-  ): Promise<void> => {
+  const loginUser = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     const { email, password } = data;
     try {
-      const { data } = await axios.post("/login", { email, password });
-      if (data.error) {
-        toast.error(data.error);
+      const response = await axios.post("/login", { email, password }, { withCredentials: true });
+      if (response.data.error) {
+        toast.error(response.data.error);
       } else {
         setData({ email: "", password: "" });
-        navigate('/')
+        axios.get('/profile', { withCredentials: true })
+          .then(({ data }) => {
+            setUser(data);
+          })
+          .catch(error => {
+            console.error('Error fetching profile:', error);
+          });
+        navigate('/');
       }
     } catch (error: any) {
-      toast.error(error);
+      toast.error(error.response?.data?.error || "An error occurred");
     }
   };
   return (
