@@ -8,10 +8,19 @@ type NavProps = {
 const Nav:React.FC<NavProps> = () => {
     
     return (
-        <nav className='flex gap-4 py-6 px-8'>
-            <Link to={""}>Home</Link>
-            <Link to={"/register"}>Register</Link>
-            <Link to={"/login"}>Login</Link>
+        <nav className='max-w-[1232px] px-4 mx-auto flex py-8 items-center relative z-20'>
+            <div className="w-[25%] text-xl font-semibold">Re<span className='text-red'>Played</span></div>
+            <div className="w-1/2 flex gap-8 justify-center text-sm opacity-80">
+            <a href="">About</a>
+            <a href="">Features</a>
+            <a href="">FAQ</a>
+            </div>
+            <div className="w-[25%] flex justify-end">
+                <Link to={"/login"}>
+                <span className='text-xs border border-gray  px-8 py-2.5 rounded-full'>Sign In</span>
+                </Link>
+            </div>
+           
         </nav>
     )
 }

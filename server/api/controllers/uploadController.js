@@ -14,8 +14,6 @@ async function uploadReplay(req, res) {
     return
   }
 
- 
-
   try {
     const replay = await parseReplay(filePath);
     const game = extractReplayInfo(replay);
