@@ -16,7 +16,6 @@ function App() {
     <Router>
       <ProfileLoader />
       <Toaster position="top-center" toastOptions={{ duration: 2000 }} />
-      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />

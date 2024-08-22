@@ -1,11 +1,15 @@
 import React from "react";
 import Features from "../components/home-components/Features";
+import Faq from "../components/home-components/Faq";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 type HomeProps = {};
 
 const Home: React.FC<HomeProps> = () => {
   return (
     <>
+    <Nav/>
       <section className="px-8 py-20">
         <div className="max-w-[1200px] mx-auto flex flex-col justify-between items-center  min-h-[850px]">
           <div className="flex flex-col items-center relative z-20">
@@ -28,7 +32,31 @@ const Home: React.FC<HomeProps> = () => {
           </div>
         </div>
       </section>
-      <Features/>
+      <Features />
+      <Faq />
+      <div className="py-24 px-4">
+        <div className="h-[400px] w-[1000px] mx-auto rounded-xl overflow-hidden flex gradient-bg p-[1px]">
+          <div className="w-1/2 h-full flex items-center justify-center">
+            <img src="/loot.webp" alt="" className="max-w-[66%]" />
+          </div>
+          <div className="w-1/2 h-full p-6 flex flex-col items-center justify-center rounded-xl rounded-l-none border-l-0 bg-black">
+            <p className="text-3xl font-semibold leading-snug">
+              Get started tracking <br /> your progress today!
+            </p>
+            <p className="mt-4 text-center font-medium">
+              Get in depth analysis to track your performance over time and gain
+              <span className="text-red"> valuable insights</span> to improve your performance.
+            </p>
+            <button className="mt-6 border border-pink border-opacity-25 px-12 py-2 rounded-full text-sm bg-black bg-opacity-85">
+              Get Started
+            </button>
+            <button className="mt-6 border border-pink border-opacity-25 px-12 py-2 rounded-full text-sm bg-black bg-opacity-85">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+      <Footer/>
     </>
   );
 };

@@ -11,7 +11,7 @@ export default {
         "red": "#FF474D",
         "pink": "#FFC8C8",
         "white": "#f5f5f5",
-        "gray": "#f5f5f588",
+        "gray": "#242424",
         "darkRed": "#FF625033",
         "altRed": "#FF6250"
       }

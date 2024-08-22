@@ -12,3 +12,20 @@ body {
   color: #f5f5f5;
   overflow-x: hidden;
 }
+
+:root {
+    color-scheme: dark;
+}
+
+li {
+   list-style-type: none;
+}
+
+.gradient-bg {
+    background: linear-gradient(315deg,#FF6250,#FF474D);
+}
+
+
+.gradient-bg-dull {
+    background: linear-gradient(315deg,#FF625066,#FF474D66);
+}
