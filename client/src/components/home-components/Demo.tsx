@@ -9,7 +9,7 @@ const Demo: React.FC<DemoProps> = () => {
     <div className="max-w-[900px] p-5">
       <section id="battle-pass">
         <div className="flex justify-between text-sm">
-          <p className="opacity-80">Battle Pass Level: 26</p>
+          <p className="">Battle Pass Level: 26</p>
           <p className="opacity-80">83/100</p>
         </div>
         <div className="bg-[#404040] mt-2 w-full h-2 rounded-full overflow-hidden">
