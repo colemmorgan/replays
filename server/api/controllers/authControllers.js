@@ -8,8 +8,8 @@ const test = (req, res) => {
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, epicId, epicUsername } = req.body;
-    if (!name) {
+    const {email, password, epicId, epicUsername } = req.body;
+    if (!epicUsername) {
       return res.json({ error: "Name is required" });
     }
     if (!password || password.length < 6) {
@@ -28,7 +28,6 @@ const registerUser = async (req, res) => {
     const hashedPassword = await hashPassword(password);
 
     const user = await User.create({
-      name,
       email,
       password: hashedPassword,
       epicId,
@@ -50,7 +49,7 @@ const loginUser = async (req, res) => {
     const match = await comparePassword(password, user.password);
     if (match) {
       jwt.sign(
-        { email: user.email, id: user._id, name: user.name, epicId: user.epicId, epicUsername: user.epicUsername },
+        { email: user.email, id: user._id, epicId: user.epicId, epicUsername: user.epicUsername },
         process.env.JWT_SECRET,
         {},
         (err, token) => {

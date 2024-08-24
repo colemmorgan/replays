@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = () => {
             Github
           </p>
           <p className="mt-3 max-w-64 text-sm">
-            © Copyright 2024 CodeCode. All Commercial Rights Reserved.
+            © Copyright 2024 Re<span className="text-red">Played</span>. All Commercial Rights Reserved.
           </p>
         </div>
         <div className="flex pl-16 w-full justify-between">

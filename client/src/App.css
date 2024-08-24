@@ -14,18 +14,25 @@ body {
 }
 
 :root {
-    color-scheme: dark;
+  color-scheme: dark;
 }
 
 li {
-   list-style-type: none;
+  list-style-type: none;
 }
 
 .gradient-bg {
-    background: linear-gradient(315deg,#FF6250,#FF474D);
+  background: linear-gradient(315deg, #ff6250, #ff474d);
 }
 
-
 .gradient-bg-dull {
-    background: linear-gradient(315deg,#FF625066,#FF474D66);
+  background: linear-gradient(315deg, #ff625066, #ff474d66);
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+.stat-shadow {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px;
 }

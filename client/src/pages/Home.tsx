@@ -3,6 +3,7 @@ import Features from "../components/home-components/Features";
 import Faq from "../components/home-components/Faq";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import Demo from "../components/home-components/Demo";
 
 type HomeProps = {};
 
@@ -28,7 +29,9 @@ const Home: React.FC<HomeProps> = () => {
           <div className="relative">
             <HeroEllipse />
             <HeroSvg />
-            <div className="w-[900px] h-[520px] bg-black border border-pink border-opacity-25 absolute z-30 -top-[280px] left-1/2 -translate-x-1/2 rounded-xl"></div>
+            <div className="max-w-[900px] w-full h-[520px] bg-black border border-pink border-opacity-25 absolute z-30 -top-[280px] left-1/2 -translate-x-1/2 rounded-xl  overflow-hidden">
+            <Demo/>
+            </div>
           </div>
         </div>
       </section>
@@ -65,11 +68,12 @@ export default Home;
 const HeroSvg: React.FC = () => {
   return (
     <svg
-      width="1920"
+      width="100vw"
       height="229"
       viewBox="0 0 1920 229"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
       className="relative z-10"
     >
       <path
@@ -99,12 +103,12 @@ const HeroSvg: React.FC = () => {
 const HeroEllipse: React.FC = () => {
   return (
     <svg
-      width="1920"
+      width="100vw"
       height="1250"
       viewBox="0 0 1920 1250"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute z-10 -top-[810px]"
+      className="absolute z-10 -top-[810px] left-1/2 -translate-x-1/2"
     >
       <g filter="url(#filter0_f_4_2)">
         <ellipse

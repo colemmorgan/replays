@@ -13,7 +13,9 @@ export default {
         "white": "#f5f5f5",
         "gray": "#242424",
         "darkRed": "#FF625033",
-        "altRed": "#FF6250"
+        "altRed": "#FF6250",
+        "dull": "#f5f5f5dd"
+        
       }
     },
   },
