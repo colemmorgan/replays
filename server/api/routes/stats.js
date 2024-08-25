@@ -12,7 +12,7 @@ router.use(
   })
 );
 
-router.get("/login/:id", getStatsById);
+router.get("/stats/:id", getStatsById);
 router.get("/games/:id", getGameById)
 
 module.exports = router;

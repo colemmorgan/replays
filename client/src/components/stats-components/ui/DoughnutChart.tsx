@@ -52,7 +52,7 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({title,labels,colors,stats}
   }];
 
   return (
-    <div className="max-w-[264px]">
+    <div className="max-w-[240px]">
       <Doughnut data={data} options={options} plugins={plugins}/>
     </div>
   );

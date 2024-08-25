@@ -19,7 +19,7 @@ const Nav: React.FC<NavProps> = () => {
       </div>
       <div className="w-[25%] flex justify-end">
         <Link to={"/login"}>
-          <span className="text-xs border border-gray  px-8 py-2.5 rounded-full">
+          <span className="text-xs border border-[#808080] px-8 py-2.5 rounded-full">
             Sign In
           </span>
         </Link>

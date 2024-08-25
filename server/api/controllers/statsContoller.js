@@ -1,6 +1,7 @@
 const axios = require("axios");
 const dotenv = require("dotenv").config();
 const Game = require("../models/game");
+const {extractAccountStats} = require("../helpers/stats")
 
 const getStatsById = async (req, res) => {
   const baseAddress = "https://fortnite-api.com/v2/stats/br/v2";
@@ -12,18 +13,13 @@ const getStatsById = async (req, res) => {
       return res.json({ error: "UserId not found." });
     }
 
-    const response = await axios.get(baseAddress, {
-      params: {
-        accountId: userId,
-        accountType: "epic",
-        timeWindow: "lifetime",
-      },
+    const response = await axios.get(`${baseAddress}/${userId}`, {
       headers: {
         Authorization: process.env.FORT_API_KEY,
       },
     });
-
-    return res.json(response.data);
+    const stats = extractAccountStats(response.data.data);
+    return res.json(stats);
   } catch (error) {
     return res.json({ error: "Error fetching data." });
   }
