@@ -1,4 +1,5 @@
 const extractAccountStats = (rawStats) => {
+    console.log("hit")
   const gameModes = rawStats.stats.all;
   let filteredGameModes = {
     overall: gameModes.overall,

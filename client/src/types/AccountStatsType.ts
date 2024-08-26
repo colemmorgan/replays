@@ -1,3 +1,5 @@
+import GameMode from "./GameMode"
+
 type AccountStatsType = {
     battlePass: {
         level: number,
@@ -12,17 +14,7 @@ type AccountStatsType = {
     }
 }
 
-type GameMode = {
-    deaths: number;
-    kd: number;
-    kills: number;
-    kpm: number;
-    matches: number;
-    minutesPlayed: number;
-    playersOutlived: number;
-    winRate: number;
-    wins: number;
-}
+
 
 
 export default AccountStatsType

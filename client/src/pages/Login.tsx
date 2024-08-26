@@ -66,55 +66,55 @@ const Login: React.FC<LoginProps> = () => {
           <Link to="/register">Register</Link>
         </ul>
       </nav>
-      <div className="min-h-[calc(100vh-90px)] pt-28">
-        <div className="border border-white border-opacity-25 rounded-xl overflow-hidden max-w-[600px] mx-auto py-12 px-12 flex flex-col items-center ">
+      <div className="min-h-[calc(100vh-90px)] pt-14 sm:pt-28">
+        <div className="sm:border border-white border-opacity-25 rounded-xl overflow-hidden max-w-[600px] mx-auto py-12 px-6 sm:px-12 flex flex-col items-center">
           <span className="text-red text-3xl">
             <FaHandPeace />
           </span>
-          <p className="mt-4 text-2xl font-semibold">
+          <p className="mt-4 text-xl sm:text-2xl font-semibold">
             Welcome back to Re<span className="text-red">Played</span>
           </p>
-          <p className="mt-2 opacity-80">Enter your credentials to login.</p>
-          <form action="" className="w-full mt-8" onSubmit={loginUser}>
+          <p className="mt-2 opacity-80 text-sm sm:text-base">Enter your credentials to login.</p>
+          <form action="" className="w-full mt-8 text-sm sm:text-base" onSubmit={loginUser}>
             <div className="flex flex-col gap-3">
-              <label htmlFor="email" className="text-sm">
+              <label htmlFor="email" className="text-xs sm:text-sm">
                 Email:
               </label>
               <input
                 type="email"
                 id="email"
-                className="py-1.5 px-4 outline-none border border-white border-opacity-25 rounded-md focus:border-red"
+                className="py-1.5 px-4 outline-none border border-white border-opacity-25 rounded-md focus:border-red text-sm sm:text-base"
                 placeholder="email@email.com"
                 value={data.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
               />
             </div>
             <div className="flex flex-col gap-3 mt-4">
-              <label htmlFor="password" className="text-sm">
+              <label htmlFor="password" className="text-xs sm:text-sm">
                 Password:
               </label>
               <input
                 type="password"
                 id="password"
-                className="py-1.5 px-4 outline-none border border-white border-opacity-25 rounded-md focus:border-red"
+                className="py-1.5 px-4 outline-none border border-white border-opacity-25 rounded-md focus:border-red text-sm sm:text-base"
                 placeholder="Your Password"
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
               />
             </div>
+            <p className="text-end text-[11px] sm:text-xs mt-3 underline">Forgot Password?</p>
             <button
               type="submit"
-              className="bg-red mt-8 w-full rounded-md py-1.5 text-sm"
+              className="bg-red mt-4 sm:mt-6 w-full rounded-md py-1.5 text-xs sm:text-sm"
             >
               Login
             </button>
-            <p className="text-sm mt-6">
+            <p className="text-xs sm:text-sm mt-6">
               Don't have an account?{" "}
               <Link to={"/register"}>
                 <span className="text-red underline">Create Account</span>
               </Link>
             </p>
-            <p className="text-end text-sm mt-3 underline">Forgot Password?</p>
           </form>
         </div>
       </div>

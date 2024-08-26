@@ -3,7 +3,7 @@ import { FaUser, FaUserEdit, FaHome } from "react-icons/fa";
 import AccountStats from "../components/stats-components/AccountStats";
 import Upload from "../components/stats-components/Upload";
 import Games from "../components/stats-components/Games";
-import UploadStats from "../components/stats-components/UploadStats";
+// import UploadStats from "../components/stats-components/UploadStats";
 import { Link } from "react-router-dom";
 
 type StatsProps = {};
