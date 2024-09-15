@@ -2,9 +2,6 @@ const User = require("../models/user");
 const { hashPassword, comparePassword } = require("../helpers/auth");
 const jwt = require("jsonwebtoken");
 
-const test = (req, res) => {
-  res.json("test is working");
-};
 
 const registerUser = async (req, res) => {
   try {
@@ -49,7 +46,7 @@ const loginUser = async (req, res) => {
     const match = await comparePassword(password, user.password);
     if (match) {
       jwt.sign(
-        { email: user.email, id: user._id, epicId: user.epicId, epicUsername: user.epicUsername },
+        { email: user.email, id: user._id, epicId: user.epicId, epicUsername: user.epicUsername, games: user.games },
         process.env.JWT_SECRET,
         {},
         (err, token) => {
@@ -62,6 +59,17 @@ const loginUser = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+
+const logoutUser = (req, res) => {
+  try {
+    res.clearCookie('token');
+    res.json({ message: 'Logged out successfully' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'An error occurred during logout' });
   }
 };
 
@@ -81,7 +89,7 @@ const getProfile = (req, res) => {
 };
 
 module.exports = {
-  test,
+  logoutUser,
   registerUser,
   loginUser,
   getProfile

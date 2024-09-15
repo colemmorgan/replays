@@ -32,7 +32,7 @@ const AccountStats: React.FC<AccountStatsProps> = () => {
   if (error) return <div>Error fetching stats: {(error as Error).message}</div>;
 
   return (
-    <div className="pb-10">
+    <div className="pb-16">
       {data && (
         <>
           <section>
@@ -41,7 +41,7 @@ const AccountStats: React.FC<AccountStatsProps> = () => {
               <p className="opacity-80">{data.battlePass.progress}/100</p>
             </div>
             <div className="bg-[#404040] mt-6 w-full h-3 rounded-full overflow-hidden">
-              <div className="gradient-bg w-[83%] h-full"></div>
+              <div className="gradient-bg  h-full" style={{width: `${data.battlePass.progress}%`}}></div>
             </div>
           </section>
           <section className="">

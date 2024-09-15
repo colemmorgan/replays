@@ -55,7 +55,7 @@ const Register: React.FC<RegisterProps> = () => {
             console.error("Error fetching profile:", error);
           });
         toast.success("Login successful. Welcome!");
-        navigate("/");
+        navigate("/stats");
       }
     } catch (error: any) {
       toast.error(error);

@@ -3,15 +3,18 @@ import { FaUser, FaUserEdit, FaHome } from "react-icons/fa";
 import AccountStats from "../components/stats-components/AccountStats";
 import Upload from "../components/stats-components/Upload";
 import Games from "../components/stats-components/Games";
-// import UploadStats from "../components/stats-components/UploadStats";
 import { Link } from "react-router-dom";
+import useLogoutUser from "../hooks/useLogoutUser";
 
 type StatsProps = {};
 
 const Stats: React.FC<StatsProps> = () => {
   const [activeTab, setActiveTab] = useState<
-    "account-stats" | "upload-stats" | "games" | "upload"
+    "account-stats" | "upload" | "games"
   >("account-stats");
+
+
+  const logout = useLogoutUser()
 
   return (
     <>
@@ -36,7 +39,7 @@ const Stats: React.FC<StatsProps> = () => {
           <span className="text-2xl ">
             <FaUserEdit />
           </span>
-          <button className="border border-white border-opacity-60 px-8 h-10 rounded-full text-sm">
+          <button className="border border-white border-opacity-60 px-8 h-10 rounded-full text-sm" onClick={logout}>
             Logout
           </button>
         </div>
@@ -52,12 +55,6 @@ const Stats: React.FC<StatsProps> = () => {
           </button>
           <button
             className="px-12 py-4 border-r border-[#80808044] bg-[#2b2b2b]"
-            onClick={() => setActiveTab("upload-stats")}
-          >
-            Upload Stats
-          </button>
-          <button
-            className="px-12 py-4 border-r border-[#80808044] bg-[#2b2b2b]"
             onClick={() => setActiveTab("games")}
           >
             View Uploads
@@ -70,7 +67,6 @@ const Stats: React.FC<StatsProps> = () => {
           </button>
         </div>
         {activeTab === "account-stats" && <AccountStats />}
-        {activeTab === "upload-stats" && <AccountStats />}
         {activeTab === "games" && <Games />}
         {activeTab === "upload" && <Upload />}
       </div>

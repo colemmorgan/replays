@@ -1,9 +1,13 @@
 import React from "react";
 import { FaPlus, FaLongArrowAltRight } from "react-icons/fa";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../atoms/userState";
+import GamePreview from "../../types/GamePreview";
 
 type GamesProps = {};
 
 const Games: React.FC<GamesProps> = () => {
+  const user = useRecoilValue(userState)
   return (
     <>
       <div className="flex justify-between border-b border-[#808080] pb-3 items-end">
@@ -26,10 +30,9 @@ const Games: React.FC<GamesProps> = () => {
         </select>
       </div>
       <div className="flex flex-col gap-4 mt-8">
-        <GamePreview/>
-        <GamePreview/>
-        <GamePreview/>
-        <GamePreview/>
+        {user && user.games && user.games.map((game) => (
+          <GamePreviewComponent game={game} key={game.gameId}/>
+        ))}
       </div>
     </>
   );
@@ -38,11 +41,12 @@ export default Games;
 
 
 type GamePreviewProps = {
-
+  game: GamePreview
 }
 
 
-const GamePreview:React.FC<GamePreviewProps> = () => {
+const GamePreviewComponent:React.FC<GamePreviewProps> = ({game}) => {
+
   return (
     <div className="border border-[#80808080] py-5 px-6 w-full rounded-md">
       <div className="flex justify-between items-end">
@@ -53,7 +57,7 @@ const GamePreview:React.FC<GamePreviewProps> = () => {
         <div className="flex items-end gap-6">
           <div className="flex gap-2 items-center">
             <img src="/aim.svg" alt=""  className="max-w-6"/>
-            <span>7</span>
+            <span>{game.eliminations}</span>
           </div>
           <div className="text-sm">
             Position: 1st

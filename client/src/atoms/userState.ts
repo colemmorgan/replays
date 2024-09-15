@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import GamePreview from "../types/GamePreview";
 
 
 interface User {
@@ -7,6 +8,7 @@ interface User {
   email: string;
   epicId: string;
   epicUsername: string;
+  games: GamePreview[]
 }
 
 export const userState = atom<User | null>({
